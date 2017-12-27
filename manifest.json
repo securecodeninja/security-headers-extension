@@ -1,16 +1,13 @@
 {
-    "name": "SecurityHeaders.io Analyser",
-    "short_name": "securityheaders.io",
-    "description": "Click to show the score for the current page. Click again to show the full report on our site.",
-    "version": "1.1",
     "applications": {
         "gecko": {
             "id": "scotthelme@hotmail.com"
         }
     },
-    "permissions": ["tabs", "https://securityheaders.io/*"],
+    "author": "Scott Helme",
     "background": {
-        "page": "background.html"
+        "page": "background.html",
+        "persistent": true
     },
     "browser_action": {
         "default_icon": {
@@ -18,8 +15,21 @@
         },
         "default_title": "SecurityHeaders.io"
     },
-    "manifest_version": 2,
+    "description": "Click to show the score for the current page. Click again to show the full report on our site.",
     "icons": {
         "48": "icons/security-headers-icon-48.png",
-        "128": "icons/security-headers-icon-128.png" }
+        "128": "icons/security-headers-icon-128.png"
+    },
+    "manifest_version": 2,
+    "name": "SecurityHeaders.io Analyser",
+    "permissions": [
+        "tabs",
+        "https://securityheaders.io/*"
+    ],
+    "short_name": "securityheaders.io",
+    "version": "1.1",
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    }
 }
